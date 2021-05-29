@@ -1,0 +1,38 @@
+﻿@inject Microsoft.AspNetCore.Authorization.IAuthorizationService Authoriation
+
+@{
+    ViewData["Title"] = "Boca del mar";
+}
+
+@{
+    var isAdmin = await Authoriation.AuthorizeAsync(User, null, "Admin");
+}
+
+<div class="text-center">
+    <h1 class="display-4">Restaurant Boca del mar</h1>
+    @if (User.Identity.IsAuthenticated)
+    {
+        var twofactor = ViewData["TwoFactorEnabled"];
+        if (twofactor != null && twofactor.ToString().ToLower() == "true")
+        {
+<a asp-action="RemoveAuthenticator" asp-controller="Account" class="btn btn-warning">Restablecer y eliminar autenticación de dos pasos</a>
+        }
+        else
+        {
+<a asp-action="EnableAuthenticator" asp-controller="Account">Configurar autenticación de dos pasos</a>
+        }
+        <br /><br />
+
+        @if (isAdmin.Succeeded)
+        {
+<h2>Su rol es: administrador</h2>
+        }
+        else
+        {
+            <h2>Su rol no es de: Administrador</h2>
+        }
+    }
+
+
+    <p></p>
+</div>
