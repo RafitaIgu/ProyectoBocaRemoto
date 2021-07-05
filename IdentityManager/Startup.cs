@@ -124,3 +124,4 @@ namespace IdentityManager
 ///Ultimo cambio hoy
 ///Trabajar en estilos
 ///Ultimo cambio en vistas
+//Revisar conexion bd
