@@ -122,3 +122,5 @@ namespace IdentityManager
 //Codigo indexado
 ///Hoy se realizaron cambios en el codigo
 ///Ultimo cambio hoy
+///Trabajar en estilos
+///Ultimo cambio en vistas
